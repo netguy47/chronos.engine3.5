@@ -38,4 +38,20 @@ export function normalizeSeries(series: FredSeriesResponse) {
 }
 
 /**
- * Computes basic volatility of a numeric time se*
+ * Computes the sample standard deviation of a numeric time series.
+ * Used as a lightweight volatility proxy for macro data.
+ */
+export function computeSeriesVolatility(series: FredSeriesResponse): number {
+  const values = normalizeSeries(series).map((point) => point.value);
+
+  if (values.length < 2) {
+    return 0;
+  }
+
+  const mean = values.reduce((sum, value) => sum + value, 0) / values.length;
+  const variance =
+    values.reduce((sum, value) => sum + Math.pow(value - mean, 2), 0) /
+    (values.length - 1);
+
+  return Number(Math.sqrt(variance).toFixed(3));
+}

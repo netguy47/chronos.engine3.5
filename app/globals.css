@@ -1,0 +1,161 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body {
+  @apply bg-slate-900 text-slate-100;
+}
+
+/* Chronos Engine Design System */
+
+@layer base {
+  h2 {
+    @apply text-slate-100 font-bold;
+  }
+
+  h3 {
+    @apply text-slate-200 font-semibold;
+  }
+
+  p {
+    @apply text-slate-300 leading-relaxed;
+  }
+
+  a {
+    @apply text-cyan-400 hover:text-cyan-300 transition-colors duration-200;
+  }
+
+  code {
+    @apply bg-slate-900 text-cyan-300 px-2 py-1 rounded font-mono text-sm;
+  }
+
+  pre {
+    @apply bg-slate-900 text-cyan-300 p-4 rounded-lg overflow-auto;
+  }
+}
+
+@layer components {
+  /* Premium Cards */
+  .card {
+    @apply rounded-xl bg-slate-900 border border-slate-800 p-6 transition-all duration-300 hover:border-slate-700 hover:bg-slate-800;
+  }
+
+  .card-elevated {
+    @apply card shadow-lg shadow-cyan-500/10;
+  }
+
+  /* Buttons */
+  .btn {
+    @apply px-4 py-2 rounded-lg font-medium transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-primary {
+    @apply btn bg-cyan-600 text-white hover:bg-cyan-500 active:bg-cyan-700;
+  }
+
+  .btn-secondary {
+    @apply btn bg-slate-800 text-slate-200 hover:bg-slate-700 border border-slate-700;
+  }
+
+  .btn-accent {
+    @apply btn bg-violet-600 text-white hover:bg-violet-500 active:bg-violet-700;
+  }
+
+  /* Badges */
+  .badge {
+    @apply inline-flex items-center rounded-full px-3 py-1 text-sm font-medium;
+  }
+
+  .badge-cyan {
+    @apply badge bg-cyan-500/20 text-cyan-300 border border-cyan-500/50;
+  }
+
+  .badge-violet {
+    @apply badge bg-violet-500/20 text-violet-300 border border-violet-500/50;
+  }
+
+  /* Status Indicators */
+  .status-active {
+    @apply inline-flex items-center gap-2 text-emerald-400;
+  }
+
+  .status-active::before {
+    content: '';
+    @apply inline-block w-2 h-2 bg-emerald-400 rounded-full animate-pulse;
+  }
+
+  /* Glassmorphism */
+  .glass {
+    @apply backdrop-blur-xl bg-white/10 border border-white/20 rounded-xl;
+  }
+
+  /* Glow Effects */
+  .glow-cyan {
+    @apply shadow-lg shadow-cyan-500/20;
+  }
+
+  .glow-violet {
+    @apply shadow-lg shadow-violet-500/20;
+  }
+}
+
+@layer utilities {
+  /* Smooth Transitions */
+  .transition-smooth {
+    @apply transition-all duration-300 ease-in-out;
+  }
+
+  /* Typography Scales */
+  .text-hero {
+    @apply text-5xl md:text-6xl font-bold tracking-tight;
+  }
+
+  .text-section {
+    @apply text-3xl md:text-4xl font-bold;
+  }
+
+  .text-subsection {
+    @apply text-xl md:text-2xl font-semibold;
+  }
+
+  /* Backgrounds */
+  .bg-gradient-cyan {
+    @apply bg-gradient-to-r from-cyan-600 to-cyan-400;
+  }
+
+  .bg-gradient-violet {
+    @apply bg-gradient-to-r from-violet-600 to-violet-400;
+  }
+
+  .bg-gradient-brand {
+    @apply bg-gradient-to-br from-cyan-600 via-violet-600 to-cyan-600;
+  }
+}
+
+/* Keyframe Animations - Defined outside layers */
+@keyframes pulse-glow {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
