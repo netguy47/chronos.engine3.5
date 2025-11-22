@@ -14,8 +14,7 @@ export interface TimelineEvent {
  */
 export function buildTimeline(
   branches: SimulationBranch[],
-  context: SimulationContext
-): TimelineEvent[] {
+  _context: SimulationContext): TimelineEvent[] {
   const events: TimelineEvent[] = [];
 
   // Shared starting event
