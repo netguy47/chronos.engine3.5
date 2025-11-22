@@ -3,8 +3,7 @@ import { computeMacroInfluenceScore } from "../fred/macroWeights";
 import { computeVolatilityScore } from "../fred/volatilityScore";
 
 export interface SimulationContext {
-  macro: any;
-  macroInfluence: number;
+  macro: unknown;  macroInfluence: number;
   volatility: number;
   timestamp: string;
 }
