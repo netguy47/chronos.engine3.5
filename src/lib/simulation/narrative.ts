@@ -1,8 +1,7 @@
 import type { SimulationContext } from "./context";
 
 export interface NarrativeVariables {
-  [key: string]: any;
-}
+  [key: string]: unknown;}
 
 /**
  * Builds a macro-aware narrative for the scenario.
